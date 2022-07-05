@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat,wall
+      initial-size: 1
+      max-active: 100
+      max-wait: 60000
+      min-evictable-idle-time-millis: 300000
+      min-idle: 1
+      name: mysql
+      password: root
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      url: jdbc:mysql://localhost:3306/wx
+      username: root
+      validation-query: SELECT 1
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+server:
+  port: 8080
+wx:
+  appId:
+  secret:
+logging:
+  file:
+    name: logs/wxserver.log
+
+
