@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wx.mapper.UserTeaBrandMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wx.common.entity.UserTeaBrand">
+        <id column="id" property="id" />
+        <result column="open_id" property="openId" />
+        <result column="brand_id" property="brandId" />
+        <result column="sort_index" property="sortIndex" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="lock_version" property="lockVersion" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, open_id, brand_id, sort_index, create_time, update_time, lock_version
+    </sql>
+
+</mapper>
