@@ -35,3 +35,13 @@ logging:
 
 pagehelper:
   helperDialect: mysql
+
+
+
+cos:
+  secretId: AKIDjOwWIuMdmS6NnCVlx7WtALUjP4K9xhLz
+  secretKey: ulZhndRpCZwOpEd1rYFkP5nXG0W2bDuU
+  bucketName: 7072-prod-3geswpes656f061d-1312730526
+  region: ap-shanghai
+  path: dev/image
+  url: http://7072-prod-3geswpes656f061d-1312730526.tcb.qcloud.la/

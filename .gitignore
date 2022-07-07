@@ -7,6 +7,8 @@
 *.log
 logs/
 
+api/
+
 # Package Files #
 *.jar
 *.war

@@ -14,6 +14,7 @@
         <result column="brix" property="brix" />
         <result column="score" property="score" />
         <result column="mood" property="mood" />
+        <result column="cup" property="cup" />
         <result column="purchase_time" property="purchaseTime" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />

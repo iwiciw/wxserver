@@ -1,4 +1,4 @@
-package com.wx.controller;
+package com.wx.controller.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -6,9 +6,10 @@ CREATE TABLE `tea_record`
     `brand_id`         bigint(20)    not null comment '奶茶品牌id',
     `name`             varchar(30)   not null comment '奶茶名称',
     `price`            decimal(5, 2) not null comment '奶茶价格',
-    `temperature`      tinyint(4)    not null comment '温度(枚举)',
-    `brix`             varchar(10)   not null comment '糖度(枚举)',
+    `temperature`      varchar(10)   not null comment '温度(枚举)',
+    `brix`             tinyint(2)    not null comment '糖度(枚举)',
     `score`            tinyint(2)    not null comment '评分',
+    `cup`              varchar(10)   not null comment '分量',
     `mood`             varchar(10)            default null comment '此刻心情(枚举)',
     `purchase_time`    varchar(20)   not null comment '购买时间',
     `create_time`      datetime               default null,
@@ -16,7 +17,8 @@ CREATE TABLE `tea_record`
     `lock_version`     smallint(6)   not null default '0',
     primary key (id),
     key `idx_open_id` (`open_id`) using btree,
-    key `idx_record_detail_id` (`record_detail_id`) using btree
+    key `idx_record_detail_id` (`record_detail_id`) using btree,
+    key `idx_purchase_time` (`purchase_time`) using btree
 ) engine = InnoDB
   default charset = utf8 comment ='奶茶记录表';
 

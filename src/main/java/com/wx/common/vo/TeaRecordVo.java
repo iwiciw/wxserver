@@ -1,27 +1,15 @@
-package com.wx.common.entity;
+package com.wx.common.vo;
 
 import java.math.BigDecimal;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.wx.common.AbstractVo;
 
-/**
- * <p>
- * 奶茶记录表
- * </p>
- *
- * @author gdd
- * @since 2022-07-07
- */
-@Data
-@EqualsAndHashCode(callSuper = true)
-public class TeaRecord extends AbstractEntity {
+public class TeaRecordVo extends AbstractVo {
 
     /**
      * 详情id
      */
     private Long recordDetailId;
-
     /**
      * openId
      */
@@ -71,4 +59,19 @@ public class TeaRecord extends AbstractEntity {
      * 购买时间
      */
     private String purchaseTime;
+
+    /**
+     * 小料
+     */
+    private String toppings;
+
+    /**
+     * 评价
+     */
+    private String remark;
+
+    /**
+     * 图片
+     */
+    private String picUrl;
 }
