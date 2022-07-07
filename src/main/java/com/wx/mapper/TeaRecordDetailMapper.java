@@ -1,7 +1,7 @@
 package com.wx.mapper;
 
-import com.wx.common.entity.TeaRecordDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.wx.common.entity.TeaRecordDetail;
 
 /**
  * <p>

@@ -5,28 +5,30 @@ import java.util.Date;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.google.common.base.Objects;
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
 public abstract class AbstractEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.INPUT)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     @Version
-    private Integer lockVersion = 0;
+    private Integer lockVersion;
 
     @Override
     public int hashCode() {

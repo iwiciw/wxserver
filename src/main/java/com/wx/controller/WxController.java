@@ -18,8 +18,8 @@ public class WxController {
     private WxUserService wxUserService;
 
     @PostMapping(value = "auth")
-    public BaseResponse<String> wxAuth(@RequestParam(value = "js_code") String code) {
+    public BaseResponse<String> wxAuth(@RequestParam(value = "code") String code) {
         String openId = wxUserService.getOpenId(code);
-        return BaseResponse.ok("openId获取成功", openId);
+        return BaseResponse.ok(openId);
     }
 }

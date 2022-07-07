@@ -1,45 +1,53 @@
 package com.wx.common;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
+import java.io.Serializable;
+import java.util.List;
 
-import lombok.AllArgsConstructor;
+import com.google.common.collect.Lists;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-public class BaseResponse<T> {
+public class BaseResponse<T extends Serializable> implements Serializable {
 
-    private Integer status;
+    private Boolean success = Boolean.TRUE;
 
-    private String message;
+    private List<String> messages;
 
-    private String devMessage;
+    private T vo;
 
-    private T data;
+    private List<T> voList;
 
-    public BaseResponse(Integer status, String message, T data) {
-        this.status = status;
-        this.message = message;
-        this.data = data;
+    private Integer count;
+
+    public static <T extends Serializable> BaseResponse<T> ok(List<T> voList, Integer count) {
+        BaseResponse<T> baseResponse = new BaseResponse<>();
+        baseResponse.setVoList(voList);
+        baseResponse.setCount(count);
+        return baseResponse;
     }
 
-    @NonNull
-    public static <T> BaseResponse<T> ok(@Nullable String message, @Nullable T data) {
-        return new BaseResponse<>(HttpStatus.OK.value(), message, data);
+    public static <T extends Serializable> BaseResponse<T> ok() {
+        return new BaseResponse<>();
     }
 
-    @NonNull
-    public static <T> BaseResponse<T> ok(@Nullable String message) {
-        return ok(message, null);
+    public static <T extends Serializable> BaseResponse<T> error(String message) {
+        BaseResponse<T> baseResponse = new BaseResponse<>();
+        baseResponse.setSuccess(false);
+        baseResponse.setMessages(Lists.newArrayList(message));
+        return baseResponse;
     }
 
-    public static <T> BaseResponse<T> ok(@Nullable T data) {
-        return new BaseResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), data);
+    public static <T extends Serializable> BaseResponse<T> ok(List<T> voList) {
+        BaseResponse<T> baseResponse = new BaseResponse<>();
+        baseResponse.setVoList(voList);
+        return baseResponse;
     }
+
+    public static <T extends Serializable> BaseResponse<T> ok(T vo) {
+        BaseResponse<T> baseResponse = new BaseResponse<>();
+        baseResponse.setVo(vo);
+        return baseResponse;
+    }
+
 }

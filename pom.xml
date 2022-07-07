@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.3.RELEASE</version>
+		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wx</groupId>
@@ -23,6 +23,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -36,7 +40,26 @@
 			<version>1.2.76</version>
 		</dependency>
 
-		<!--mybatis start-->
+		<!-- pagehelper begin-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.10</version>
+			<!-- 排除以下包 -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.mybatis</groupId>
+					<artifactId>mybatis</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.mybatis</groupId>
+					<artifactId>mybatis-spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- pagehelper end-->
+
+		<!-- mybatis begin -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
@@ -52,7 +75,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.34</version>
 		</dependency>
-		<!--mybatis end-->
+		<!-- mybatis end -->
+
 
 		<!--logback-->
 		<dependency>
@@ -72,6 +96,25 @@
 			<version>20.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.8.4</version>
+		</dependency>
+
+		<!-- valid start -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.18.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<!-- valid end -->
+
 		<!-- apache commons begin -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -84,6 +127,9 @@
 			<artifactId>commons-collections</artifactId>
 			<version>3.2</version>
 		</dependency>
+		<!-- apache commons begin -->
+
+		<!-- mybatis-plus-generator begin -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-generator</artifactId>
@@ -98,6 +144,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+		<!-- mybatis-plus-generator end -->
     </dependencies>
 
 	<build>
@@ -107,6 +154,28 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
 
+	<resources>
+		<resource>
+			<directory>src/main/java/com/wx/mapper/xml</directory>
+			<includes>
+				<include>*.xml</include>
+			</includes>
+		</resource>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>true</filtering>
+			<includes>
+				<include>**/*.yml</include>
+			</includes>
+		</resource>
+		<resource>
+			<directory>src/main/resources</directory>
+			<filtering>false</filtering>
+			<excludes>
+				<exclude>**/*.yml</exclude>
+			</excludes>
+		</resource>
+	</resources>
+	</build>
 </project>

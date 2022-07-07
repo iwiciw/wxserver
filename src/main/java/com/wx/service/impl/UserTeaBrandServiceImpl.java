@@ -1,10 +1,11 @@
 package com.wx.service.impl;
 
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wx.common.entity.UserTeaBrand;
 import com.wx.mapper.UserTeaBrandMapper;
 import com.wx.service.UserTeaBrandService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 
 /**
  * <p>

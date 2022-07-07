@@ -1,8 +1,6 @@
 package com.wx.controller;
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -14,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-07-07
  */
 @RestController
-@RequestMapping("/tea-record")
+@RequestMapping("/api/tea/record")
 public class TeaRecordController {
 
-}
 
+
+}

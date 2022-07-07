@@ -88,7 +88,6 @@ public class CodeGenerator {
 
         // 乐观锁
         sc.setVersionFieldName("lock_version");
-        sc.setRestControllerStyle(true);// 驼峰命名
 
         // sc.setTablePrefix("tbl_"); 设置表名前缀
         sc.setInclude(scanner("表名，多个英文逗号分割").split(","));

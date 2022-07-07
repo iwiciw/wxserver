@@ -9,13 +9,13 @@ spring:
       min-evictable-idle-time-millis: 300000
       min-idle: 1
       name: mysql
-      password: root
       test-on-borrow: false
       test-on-return: false
       test-while-idle: true
       time-between-eviction-runs-millis: 60000
-      url: jdbc:mysql://localhost:3306/wx
+      url: jdbc:mysql://localhost:3306/vx
       username: root
+      password: root
       validation-query: SELECT 1
   mvc:
     throw-exception-if-no-handler-found: true

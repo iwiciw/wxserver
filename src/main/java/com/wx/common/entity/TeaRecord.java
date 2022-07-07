@@ -1,13 +1,7 @@
 package com.wx.common.entity;
 
 import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,13 +14,8 @@ import lombok.EqualsAndHashCode;
  * @since 2022-07-07
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class TeaRecord implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class TeaRecord extends AbstractEntity {
 
     /**
      * 详情id
@@ -77,15 +66,4 @@ public class TeaRecord implements Serializable {
      * 购买时间
      */
     private String purchaseTime;
-
-    @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
-
-    @Version
-    private Integer lockVersion;
-
-
 }

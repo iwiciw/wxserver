@@ -1,7 +1,7 @@
 package com.wx.service;
 
-import com.wx.common.entity.TeaRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.wx.common.entity.TeaRecord;
 
 /**
  * <p>
