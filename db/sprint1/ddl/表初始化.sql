@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS tea_record;
 CREATE TABLE `tea_record`
 (
     `id`               bigint(20)    not null auto_increment,
@@ -11,7 +12,7 @@ CREATE TABLE `tea_record`
     `score`            tinyint(2)    not null comment '评分',
     `cup`              varchar(10)   not null comment '份量',
     `mood`             varchar(10)            default null comment '此刻心情(枚举)',
-    `purchase_time`    varchar(20)   not null comment '购买时间',
+    `purchase_time`    char(10)   not null comment '购买时间',
     `create_time`      datetime               default null,
     `update_time`      datetime               default null,
     `lock_version`     smallint(6)   not null default '0',
@@ -23,7 +24,7 @@ CREATE TABLE `tea_record`
 ) engine = InnoDB
   default charset = utf8 comment ='奶茶记录表';
 
-
+DROP TABLE IF EXISTS tea_record_detail;
 CREATE TABLE `tea_record_detail`
 (
     `id`           bigint(20)   not null auto_increment,
@@ -38,6 +39,7 @@ CREATE TABLE `tea_record_detail`
 ) engine = InnoDB
   default charset = utf8 comment ='记录详情表';
 
+DROP TABLE IF EXISTS tea_brand;
 create table `tea_brand`
 (
     `id`               bigint(20)   not null auto_increment,
@@ -55,7 +57,7 @@ create table `tea_brand`
   default charset = utf8 comment ='品牌表';
 
 
-
+DROP TABLE IF EXISTS user_tea_brand;
 create table `user_tea_brand`
 (
     `id`           bigint(20)   not null auto_increment,
