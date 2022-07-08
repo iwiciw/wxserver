@@ -35,7 +35,7 @@ public class TeaRecord extends AbstractEntity {
     /**
      * 奶茶名称
      */
-    private String name;
+    private String teaName;
 
     /**
      * 奶茶价格

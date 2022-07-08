@@ -4,26 +4,26 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wx.common.entity.TeaRecord">
-        <id column="id" property="id" />
-        <result column="record_detail_id" property="recordDetailId" />
-        <result column="open_id" property="openId" />
-        <result column="brand_id" property="brandId" />
-        <result column="name" property="name" />
-        <result column="price" property="price" />
-        <result column="temperature" property="temperature" />
-        <result column="brix" property="brix" />
-        <result column="score" property="score" />
-        <result column="mood" property="mood" />
-        <result column="cup" property="cup" />
-        <result column="purchase_time" property="purchaseTime" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="lock_version" property="lockVersion" />
+        <id column="id" property="id"/>
+        <result column="record_detail_id" property="recordDetailId"/>
+        <result column="open_id" property="openId"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="tea_name" property="teaName"/>
+        <result column="price" property="price"/>
+        <result column="temperature" property="temperature"/>
+        <result column="brix" property="brix"/>
+        <result column="score" property="score"/>
+        <result column="mood" property="mood"/>
+        <result column="cup" property="cup"/>
+        <result column="purchase_time" property="purchaseTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="lock_version" property="lockVersion"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, record_detail_id, open_id, brand_id, name, price, temperature, brix, score, mood, purchase_time, create_time, update_time, lock_version
+        id, record_detail_id, open_id, brand_id, tea_name, price, temperature, brix, score, mood, purchase_time, create_time, update_time, lock_version
     </sql>
 
 </mapper>

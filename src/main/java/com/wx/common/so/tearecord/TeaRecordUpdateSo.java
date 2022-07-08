@@ -43,7 +43,7 @@ public class TeaRecordUpdateSo extends BaseSo {
      */
     @NotBlank(message = "奶茶名称不能为空")
     @Length(max = 30, message = "openId长度不能超过{max}")
-    private String name;
+    private String teaName;
 
     /**
      * 奶茶价格

@@ -17,7 +17,7 @@ public class TeaBrand extends AbstractEntity {
     /**
      * 名称
      */
-    private String name;
+    private String brandName;
 
     /**
      * 图标

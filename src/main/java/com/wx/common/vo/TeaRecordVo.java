@@ -23,7 +23,7 @@ public class TeaRecordVo extends AbstractVo {
     /**
      * 奶茶名称
      */
-    private String name;
+    private String teaName;
 
     /**
      * 奶茶价格

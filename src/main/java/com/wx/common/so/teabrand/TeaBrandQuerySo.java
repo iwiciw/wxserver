@@ -9,5 +9,5 @@ public class TeaBrandQuerySo extends BaseSo {
     /**
      * 品牌名
      */
-    private String name;
+    private String brandName;
 }

@@ -9,7 +9,7 @@ public class TeaBrandVo extends AbstractVo {
     /**
      * 名称
      */
-    private String name;
+    private String brandName;
 
     /**
      * 图标

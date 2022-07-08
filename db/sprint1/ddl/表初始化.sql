@@ -4,12 +4,12 @@ CREATE TABLE `tea_record`
     `record_detail_id` bigint(20)    not null comment '详情id',
     `open_id`          varchar(100)  not null comment 'openId',
     `brand_id`         bigint(20)    not null comment '奶茶品牌id',
-    `name`             varchar(30)   not null comment '奶茶名称',
+    `tea_name`         varchar(30)   not null comment '奶茶名称',
     `price`            decimal(5, 2) not null comment '奶茶价格',
     `temperature`      varchar(10)   not null comment '温度(枚举)',
     `brix`             tinyint(2)    not null comment '糖度(枚举)',
     `score`            tinyint(2)    not null comment '评分',
-    `cup`              varchar(10)   not null comment '分量',
+    `cup`              varchar(10)   not null comment '份量',
     `mood`             varchar(10)            default null comment '此刻心情(枚举)',
     `purchase_time`    varchar(20)   not null comment '购买时间',
     `create_time`      datetime               default null,
@@ -17,8 +17,9 @@ CREATE TABLE `tea_record`
     `lock_version`     smallint(6)   not null default '0',
     primary key (id),
     key `idx_open_id` (`open_id`) using btree,
-    key `idx_record_detail_id` (`record_detail_id`) using btree,
-    key `idx_purchase_time` (`purchase_time`) using btree
+    key `idx_purchase_time` (`purchase_time`) using btree,
+    key `idx_brand_id` (`brand_id`) using btree,
+    key `idx_name` (`tea_name`) using btree
 ) engine = InnoDB
   default charset = utf8 comment ='奶茶记录表';
 
@@ -40,7 +41,7 @@ CREATE TABLE `tea_record_detail`
 create table `tea_brand`
 (
     `id`               bigint(20)   not null auto_increment,
-    `name`             varchar(20)  not null comment '名称',
+    `brand_name`       varchar(20)  not null comment '名称',
     `pic_url`          varchar(100)          default null comment '图标',
     `open_id`          varchar(100) not null comment 'openId(系统自建0)',
     `char_group`       char(5)               default null comment '首字母分组',
@@ -49,7 +50,7 @@ create table `tea_brand`
     `update_time`      datetime              default null,
     `lock_version`     smallint(6)  not null default '0',
     primary key (id),
-    unique key `uidx_name` (`name`) using btree
+    unique key `uidx_name` (`brand_name`) using btree
 ) engine = InnoDB
   default charset = utf8 comment ='品牌表';
 

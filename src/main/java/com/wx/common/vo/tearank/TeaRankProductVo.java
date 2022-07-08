@@ -14,7 +14,7 @@ public class TeaRankProductVo extends BaseVo {
     /**
      * 单品名
      */
-    private String productName;
+    private String teaName;
 
     /**
      * 打卡次数
