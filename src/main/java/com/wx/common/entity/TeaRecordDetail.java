@@ -18,6 +18,11 @@ public class TeaRecordDetail extends AbstractEntity {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 记录表id
+     */
+    private Long recordId;
+
+    /**
      * openId
      */
     private String openId;

@@ -1,5 +1,6 @@
 package com.wx.controller;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.wx.common.so.tearecord.TeaRecordDeleteSo;
 import com.wx.common.so.tearecord.TeaRecordQuerySo;
 import com.wx.common.so.tearecord.TeaRecordUpdateSo;
 import com.wx.common.vo.TeaRecordVo;
+import com.wx.service.TeaRecordService;
 
 /**
  * 奶茶记录
@@ -21,6 +23,9 @@ import com.wx.common.vo.TeaRecordVo;
 @RequestMapping("/api/tea/record")
 public class TeaRecordController {
 
+    @Resource
+    private TeaRecordService teaRecordService;
+
     /**
      * 创建奶茶消费记录
      * @param so
@@ -28,7 +33,8 @@ public class TeaRecordController {
      */
     @PostMapping("create")
     public BaseResponse create(@RequestBody @Valid TeaRecordCreateSo so) {
-        return null;
+        teaRecordService.create(so);
+        return BaseResponse.ok();
     }
 
     /**
@@ -38,7 +44,8 @@ public class TeaRecordController {
      */
     @PostMapping("delete")
     public BaseResponse delete(@RequestBody @Valid TeaRecordDeleteSo so) {
-        return null;
+        teaRecordService.delete(so);
+        return BaseResponse.ok();
     }
 
     /**
@@ -48,7 +55,8 @@ public class TeaRecordController {
      */
     @PostMapping("update")
     public BaseResponse update(@RequestBody @Valid TeaRecordUpdateSo so) {
-        return null;
+        teaRecordService.update(so);
+        return BaseResponse.ok();
     }
 
     /**
@@ -58,6 +66,6 @@ public class TeaRecordController {
      */
     @PostMapping("list")
     public BaseResponse<TeaRecordVo> list(@RequestBody @Valid TeaRecordQuerySo so) {
-        return null;
+        return BaseResponse.ok(teaRecordService.list(so));
     }
 }

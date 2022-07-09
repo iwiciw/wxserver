@@ -1,7 +1,13 @@
 package com.wx.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wx.common.entity.TeaRecord;
+import com.wx.common.so.tearecord.TeaRecordQuerySo;
+import com.wx.common.vo.TeaRecordVo;
 
 /**
  * <p>
@@ -13,4 +19,5 @@ import com.wx.common.entity.TeaRecord;
  */
 public interface TeaRecordMapper extends BaseMapper<TeaRecord> {
 
+    List<TeaRecordVo> selectTeaRecordVosByQuerySo(TeaRecordQuerySo so);
 }

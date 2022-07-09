@@ -5,7 +5,6 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wx.common.entity.TeaRecord">
         <id column="id" property="id"/>
-        <result column="record_detail_id" property="recordDetailId"/>
         <result column="open_id" property="openId"/>
         <result column="brand_id" property="brandId"/>
         <result column="tea_name" property="teaName"/>
@@ -23,7 +22,23 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, record_detail_id, open_id, brand_id, tea_name, price, temperature, brix, score, mood, purchase_time, create_time, update_time, lock_version
+        id, open_id, brand_id, tea_name, price, temperature, brix, score, mood, purchase_time, create_time, update_time, lock_version
     </sql>
+
+    <select id="selectTeaRecordVosByQuerySo" resultType="com.wx.common.vo.TeaRecordVo">
+        select tr.*, tb.brand_name, trd.record_id, trd.toppings, trd.pic_url
+        from tea_record tr
+        inner join tea_record_detail trd on tr.id = trd.record_id
+        inner join tea_brand tb on tr.brand_id = tb.id
+        <where>
+            1=1
+            <if test="null != openId and openId.trim() != ''">
+                and tr.open_id = #{openId}
+            </if>
+            <if test="null != purchaseTime">
+                and tr.purchase_time like CONCAT(#{purchaseTime},'%')
+            </if>
+        </where>
+    </select>
 
 </mapper>

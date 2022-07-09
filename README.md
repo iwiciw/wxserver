@@ -30,21 +30,21 @@
 - 列表：com.wx.controller.UserTeaBrandController.list
 
 #### 打卡
-- 创建奶茶消费记录：com.wx.controller.TeaRecordController.create
-- 删除奶茶消费记录：com.wx.controller.TeaRecordController.delete
-- 编辑奶茶消费记录：com.wx.controller.TeaRecordController.update
-- 查询奶茶消费记录：com.wx.controller.TeaRecordController.list
+- ~~创建奶茶消费记录：com.wx.controller.t.create~~
+- ~~删除奶茶消费记录：com.wx.controller.TeaRecordController.delete~~
+- ~~编辑奶茶消费记录：com.wx.controller.TeaRecordController.update~~
+- ~~查询奶茶消费记录：com.wx.controller.TeaRecordController.list~~
 
 #### 统计
 - 打卡页面奶茶统计：com.wx.controller.TeaStatisticController.statistic
 
-#### 排行 todo
+#### 排行榜
 - 排行榜查询：com.wx.controller.TeaRankController.list
 
 #### 图片上传 
 开发完成，可采用前端开发方式
-- 上传：com.wx.controller.os.CosController.upload
-- 删除：com.wx.controller.os.CosController.delete
+- ~~上传：com.wx.controller.os.CosController.upload~~
+- ~~删除：com.wx.controller.os.CosController.delete~~
 
 
 

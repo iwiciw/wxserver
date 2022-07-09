@@ -4,12 +4,10 @@ import java.math.BigDecimal;
 
 import com.wx.common.AbstractVo;
 
-public class TeaRecordVo extends AbstractVo {
+import lombok.Data;
 
-    /**
-     * 详情id
-     */
-    private Long recordDetailId;
+@Data
+public class TeaRecordVo extends AbstractVo {
     /**
      * openId
      */
@@ -19,6 +17,11 @@ public class TeaRecordVo extends AbstractVo {
      * 奶茶品牌id
      */
     private Long brandId;
+
+    /**
+     * 奶茶品牌名称
+     */
+    private String brandName;
 
     /**
      * 奶茶名称

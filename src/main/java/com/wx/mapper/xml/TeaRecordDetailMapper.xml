@@ -4,19 +4,20 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wx.common.entity.TeaRecordDetail">
-        <id column="id" property="id" />
-        <result column="open_id" property="openId" />
-        <result column="toppings" property="toppings" />
-        <result column="remark" property="remark" />
-        <result column="pic_url" property="picUrl" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="lock_version" property="lockVersion" />
+        <id column="id" property="id"/>
+        <result column="record_id" property="recordId"/>
+        <result column="open_id" property="openId"/>
+        <result column="toppings" property="toppings"/>
+        <result column="remark" property="remark"/>
+        <result column="pic_url" property="picUrl"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="lock_version" property="lockVersion"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, open_id, toppings, remark, pic_url, create_time, update_time, lock_version
+        id, record_id, open_id, toppings, remark, pic_url, create_time, update_time, lock_version
     </sql>
 
 </mapper>

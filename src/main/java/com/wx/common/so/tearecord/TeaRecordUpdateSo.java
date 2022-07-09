@@ -8,11 +8,12 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import com.wx.common.BaseSo;
+import com.wx.common.annotation.DateTimeStr;
 import com.wx.common.enums.CupType;
 import com.wx.common.enums.MoodType;
 import com.wx.common.enums.TemperatureType;
@@ -64,14 +65,14 @@ public class TeaRecordUpdateSo extends BaseSo {
      * 糖度(枚举)
      */
     @NotNull(message = "糖度不能为空")
-    @Size(min = 0, max = 10, message = "糖度在{min}和{max}之间")
+    @Range(min = 0, max = 10, message = "糖度在{min}和{max}之间")
     private Integer brix;
 
     /**
      * 评分
      */
     @NotNull(message = "评分不能为空")
-    @Size(min = 1, max = 5, message = "评分在{min}和{max}之间")
+    @Range(min = 1, max = 5, message = "评分在{min}和{max}之间")
     private Integer score;
 
     /**
@@ -89,6 +90,7 @@ public class TeaRecordUpdateSo extends BaseSo {
      * 购买时间
      */
     @NotBlank(message = "购买时间不能为空")
+    @DateTimeStr()
     private String purchaseTime;
 
     /**

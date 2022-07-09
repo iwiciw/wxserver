@@ -15,7 +15,6 @@ public class TeaRecordQuerySo extends BaseSo {
     @Length(max = 100, message = "openId长度不能超过{max}")
     private String openId;
 
-
     /**
      * 前缀匹配，比如2022-09就是查2022年9月的，2022-09-01就是查9月1号的
      */

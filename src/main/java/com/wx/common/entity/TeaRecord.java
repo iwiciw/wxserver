@@ -18,11 +18,6 @@ import lombok.EqualsAndHashCode;
 public class TeaRecord extends AbstractEntity {
 
     /**
-     * 详情id
-     */
-    private Long recordDetailId;
-
-    /**
      * openId
      */
     private String openId;

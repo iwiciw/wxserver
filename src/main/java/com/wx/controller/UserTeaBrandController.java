@@ -33,6 +33,7 @@ public class UserTeaBrandController {
      */
     @PostMapping("create")
     public BaseResponse create(@RequestBody @Valid UserTeaBrandCreateSo so) {
+        userTeaBrandService.create(so);
         return BaseResponse.ok();
     }
 
@@ -43,6 +44,7 @@ public class UserTeaBrandController {
      */
     @PostMapping("createFromLibary")
     public BaseResponse createFromLibary(@RequestBody @Valid TeaBrandCreateSo so) {
+        userTeaBrandService.createFromLibary(so);
         return BaseResponse.ok();
     }
 
@@ -53,6 +55,7 @@ public class UserTeaBrandController {
      */
     @PostMapping("delete")
     public BaseResponse delete(@RequestBody @Valid UserTeaBrandDeleteSo so) {
+        userTeaBrandService.delete(so);
         return BaseResponse.ok();
     }
 
@@ -63,7 +66,7 @@ public class UserTeaBrandController {
      */
     @PostMapping("list")
     public BaseResponse<UserTeaBrandVo> list(@RequestBody @Valid UserTeaBrandQuerySo so) {
-        return BaseResponse.ok();
+        return BaseResponse.ok(userTeaBrandService.list(so));
     }
 
 }

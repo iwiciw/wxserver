@@ -1,0 +1,2 @@
+INSERT INTO tea_brand (brand_name, pic_url, open_id, char_group, group_sort_index, create_time, update_time, lock_version)
+VALUES ('123', '123', '134', NULL, NULL, '2022-07-07 17:26:54', '2022-07-07 17:26:54', 0);
