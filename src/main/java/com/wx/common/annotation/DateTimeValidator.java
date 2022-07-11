@@ -36,4 +36,31 @@ public class DateTimeValidator implements ConstraintValidator<DateTimeStr, Strin
 
         return true;
     }
+
+    public static boolean isValid(String value, String format) {
+        if (value == null) {
+            return false;
+        }
+
+        if (value.length() != format.length()) {
+            return false;
+        }
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+
+        try {
+            simpleDateFormat.parse(value);
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args){
+        System.out.println(isValid("2022-7-08","yyyy-MM-dd"));
+        System.out.println(isValid("2022-7-08","yyyy-MM"));
+        System.out.println(isValid("2022","yyyy"));
+        System.out.println(isValid("2022-07","yyyy-MM"));
+    }
 }

@@ -35,7 +35,8 @@ CREATE TABLE `tea_record_detail`
     `create_time`  datetime              default null,
     `update_time`  datetime              default null,
     `lock_version` smallint(6)  not null default '0',
-    primary key (id)
+    primary key (id),
+    key `idx_record_id` (`record_id`) using btree
 ) engine = InnoDB
   default charset = utf8 comment ='记录详情表';
 
@@ -68,6 +69,6 @@ create table `user_tea_brand`
     `update_time`  datetime              default null,
     `lock_version` smallint(6)  not null default '0',
     primary key (id),
-    key `idx_open_id` (`open_id`) using btree
+    unique key `uidx_open_brand_id` (`open_id`, `brand_id`) using btree
 ) engine = InnoDB
   default charset = utf8 comment ='我的品牌';

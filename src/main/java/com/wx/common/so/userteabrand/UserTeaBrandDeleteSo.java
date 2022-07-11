@@ -23,7 +23,7 @@ public class UserTeaBrandDeleteSo extends BaseSo {
     /**
      * 用户品牌id
      */
-    @NotNull(message = "用户品牌id不能为空")
-    @Min(value = 1, message = "用户品牌id不合法")
-    private Long userTeaBrandId;
+    @NotNull(message = "品牌id不能为空")
+    @Min(value = 1, message = "品牌id不合法")
+    private Long brandId;
 }

@@ -4,18 +4,26 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wx.common.entity.UserTeaBrand">
-        <id column="id" property="id" />
-        <result column="open_id" property="openId" />
-        <result column="brand_id" property="brandId" />
-        <result column="sort_index" property="sortIndex" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="lock_version" property="lockVersion" />
+        <id column="id" property="id"/>
+        <result column="open_id" property="openId"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="sort_index" property="sortIndex"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="lock_version" property="lockVersion"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, open_id, brand_id, sort_index, create_time, update_time, lock_version
     </sql>
+
+
+    <select id="selectUserTeaBrandVoByQuerySo" resultType="com.wx.common.vo.userteabrand.UserTeaBrandVo">
+        select utb.*, tb.brand_name, tb.pic_url as brandPicUrl
+        from user_tea_brand utb
+                 inner join tea_brand tb on utb.brand_id = tb.id
+        where utb.open_id = #{openId}
+    </select>
 
 </mapper>

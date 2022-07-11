@@ -2,12 +2,13 @@ package com.wx.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wx.common.entity.TeaRecord;
 import com.wx.common.so.tearecord.TeaRecordQuerySo;
+import com.wx.common.so.teastatistic.TeaStatisticQuerySo;
 import com.wx.common.vo.TeaRecordVo;
+import com.wx.common.vo.teastatistic.TeaBrandStatisticVo;
+import com.wx.common.vo.teastatistic.TeaStatisticVo;
 
 /**
  * <p>
@@ -20,4 +21,19 @@ import com.wx.common.vo.TeaRecordVo;
 public interface TeaRecordMapper extends BaseMapper<TeaRecord> {
 
     List<TeaRecordVo> selectTeaRecordVosByQuerySo(TeaRecordQuerySo so);
+
+    /**
+     * 首页统计分析
+     * @param so
+     * @return
+     */
+    TeaStatisticVo statistic(TeaStatisticQuerySo so);
+
+    /**
+     * 首页统计分析
+     * @param so
+     * @return
+     */
+    List<TeaBrandStatisticVo> brandStatistic(TeaStatisticQuerySo so);
+
 }

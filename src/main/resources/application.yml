@@ -39,7 +39,10 @@ wx:
 logging:
   file:
     name: logs/wxserver.log
-
+  level:
+    com:
+      wx:
+        mapper: DEBUG
 
 pagehelper:
   helperDialect: mysql

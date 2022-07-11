@@ -20,4 +20,14 @@
         id, brand_name, pic_url, open_id, char_group, group_sort_index, create_time, update_time, lock_version
     </sql>
 
+    <select id="selectTeaBrandVoByQuerySo" resultType="com.wx.common.vo.tearecord.TeaBrandVo">
+        select * from tea_brand
+        <where>
+            <if test="null != brandName and brandName.trim() != ''">
+                and brand_name like CONCAT('%',#{brandName},'%')
+            </if>
+        </where>
+        order by char_group asc,group_sort_index asc,id asc
+    </select>
+
 </mapper>

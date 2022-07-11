@@ -1,7 +1,11 @@
 package com.wx.service;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wx.common.entity.TeaBrand;
+import com.wx.common.so.teabrand.TeaBrandQuerySo;
+import com.wx.common.vo.tearecord.TeaBrandVo;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.wx.common.entity.TeaBrand;
  */
 public interface TeaBrandService extends IService<TeaBrand> {
 
+    List<TeaBrandVo> list(TeaBrandQuerySo so);
 }

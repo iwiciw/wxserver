@@ -19,9 +19,9 @@ import com.wx.common.vo.userteabrand.UserTeaBrandVo;
  * @since 2022-07-07
  */
 public interface UserTeaBrandService extends IService<UserTeaBrand> {
-    void create(UserTeaBrandCreateSo so);
+    void create(TeaBrandCreateSo so);
 
-    void createFromLibary(TeaBrandCreateSo so);
+    void createFromLibary(UserTeaBrandCreateSo so);
 
     void delete(UserTeaBrandDeleteSo so);
 

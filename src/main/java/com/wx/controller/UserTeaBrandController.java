@@ -32,7 +32,7 @@ public class UserTeaBrandController {
      * @return
      */
     @PostMapping("create")
-    public BaseResponse create(@RequestBody @Valid UserTeaBrandCreateSo so) {
+    public BaseResponse create(@RequestBody @Valid TeaBrandCreateSo so) {
         userTeaBrandService.create(so);
         return BaseResponse.ok();
     }
@@ -43,7 +43,7 @@ public class UserTeaBrandController {
      * @return
      */
     @PostMapping("createFromLibary")
-    public BaseResponse createFromLibary(@RequestBody @Valid TeaBrandCreateSo so) {
+    public BaseResponse createFromLibary(@RequestBody @Valid UserTeaBrandCreateSo so) {
         userTeaBrandService.createFromLibary(so);
         return BaseResponse.ok();
     }

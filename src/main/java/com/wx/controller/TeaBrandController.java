@@ -29,6 +29,6 @@ public class TeaBrandController {
      */
     @PostMapping("list")
     public BaseResponse<TeaBrandVo> list(@RequestBody TeaBrandQuerySo so) {
-        return BaseResponse.ok();
+        return BaseResponse.ok(TeaBrandService.list(so));
     }
 }

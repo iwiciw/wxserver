@@ -19,15 +19,15 @@
 ### 接口
 
 #### 品牌库
-- 根据条件查品牌信息：com.wx.controller.TeaBrandController.list
+- ~~根据条件查品牌信息：com.wx.controller.TeaBrandController.list~~
 
 #### 我的品牌
 本期不做编辑
 
-- 自定义添加：com.wx.controller.UserTeaBrandController.create
-- 从品牌库添加：com.wx.controller.UserTeaBrandController.createFromLibary
-- 删除：com.wx.controller.UserTeaBrandController.delete
-- 列表：com.wx.controller.UserTeaBrandController.list
+- ~~自定义添加：com.wx.controller.UserTeaBrandController.create~~
+- 从品牌库添加：~~com.wx.controller.UserTeaBrandController.createFromLibary~~
+- 删除：~~com.wx.controller.UserTeaBrandController.delete~~
+- 列表：~~com.wx.controller.UserTeaBrandController.list~~
 
 #### 打卡
 - ~~创建奶茶消费记录：com.wx.controller.t.create~~
@@ -36,7 +36,7 @@
 - ~~查询奶茶消费记录：com.wx.controller.TeaRecordController.list~~
 
 #### 统计
-- 打卡页面奶茶统计：com.wx.controller.TeaStatisticController.statistic
+- ~~打卡页面奶茶统计：com.wx.controller.TeaStatisticController.statistic~~
 
 #### 排行榜
 - 排行榜查询：com.wx.controller.TeaRankController.list
@@ -48,3 +48,6 @@
 
 
 
+## sprint2
+## sprint3
+## sprint4

@@ -31,7 +31,6 @@
         inner join tea_record_detail trd on tr.id = trd.record_id
         inner join tea_brand tb on tr.brand_id = tb.id
         <where>
-            1=1
             <if test="null != openId and openId.trim() != ''">
                 and tr.open_id = #{openId}
             </if>
@@ -39,6 +38,42 @@
                 and tr.purchase_time like CONCAT(#{purchaseTime},'%')
             </if>
         </where>
+    </select>
+
+    <select id="statistic" resultType="com.wx.common.vo.teastatistic.TeaStatisticVo">
+        select count(*) as totalCup, sum(price) as totalPrice, sum(brix) as totalBrix
+        from tea_record
+        <where>
+            open_id = #{openId}
+            <choose>
+                <when test="staticType.name() == 'THIS_WEEK' or staticType.name() == 'CUSTOM'">
+                    and purchase_time <![CDATA[ >= ]]> #{purchaseTimeBegin} and purchase_time <![CDATA[ <= ]]>
+                    #{purchaseTimeEnd}
+                </when>
+                <when test="staticType.name() == 'MONTH' or staticType.name() == 'YEAR'">
+                    and purchase_time like CONCAT(#{purchaseTime},'%')
+                </when>
+            </choose>
+        </where>
+    </select>
+
+    <select id="brandStatistic" resultType="com.wx.common.vo.teastatistic.TeaBrandStatisticVo">
+        select count(*) as totalCup, sum(tr.price) as totalPrice, sum(tr.brix)as totalBrix, tr.brand_id,tb.brand_name
+        from tea_record tr inner join tea_brand tb on tr.brand_id =tb.id
+        <where>
+            tr.open_id = #{openId}
+            <choose>
+                <when test="staticType.name() == 'THIS_WEEK' or staticType.name() == 'CUSTOM'">
+                    and tr.purchase_time <![CDATA[ >= ]]> #{purchaseTimeBegin} and tr.purchase_time <![CDATA[ <= ]]>
+                    #{purchaseTimeEnd}
+                </when>
+                <when test="staticType.name() == 'MONTH' or staticType.name() == 'YEAR'">
+                    and tr.purchase_time like CONCAT(#{purchaseTime},'%')
+                </when>
+            </choose>
+        </where>
+        group by tr.brand_id
+        order by totalCup desc,totalPrice desc
     </select>
 
 </mapper>

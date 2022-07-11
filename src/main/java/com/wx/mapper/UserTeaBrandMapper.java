@@ -1,7 +1,11 @@
 package com.wx.mapper;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wx.common.entity.UserTeaBrand;
+import com.wx.common.so.userteabrand.UserTeaBrandQuerySo;
+import com.wx.common.vo.userteabrand.UserTeaBrandVo;
 
 /**
  * <p>
@@ -12,5 +16,7 @@ import com.wx.common.entity.UserTeaBrand;
  * @since 2022-07-07
  */
 public interface UserTeaBrandMapper extends BaseMapper<UserTeaBrand> {
+
+    List<UserTeaBrandVo> selectUserTeaBrandVoByQuerySo(UserTeaBrandQuerySo so);
 
 }
