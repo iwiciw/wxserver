@@ -1,5 +1,6 @@
 package com.wx.controller;
 
+import com.wx.service.TeaRankService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wx.common.BaseResponse;
 import com.wx.common.so.tearank.TeaRankSo;
 import com.wx.common.vo.tearank.TeaRankVo;
+
+import javax.annotation.Resource;
 
 /**
  * 排行榜
