@@ -44,14 +44,4 @@ public class TeaRanKServiceImpl implements TeaRankService {
         }
         return teaRankVo;
     }
-
-    public static void main(String[] args){
-        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
-        Calendar cld = Calendar.getInstance(Locale.CHINA);
-        cld.setFirstDayOfWeek(Calendar.MONDAY);
-        cld.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-        String monDate = df.format(cld.getTime());
-        String today = df.format(new Date());
-        String str="123";
-    }
 }
