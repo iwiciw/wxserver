@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wx.mapper.TeaRankMapper">
+
+    <select id="selectBrandRankList" resultType="com.wx.common.vo.tearank.TeaRankBrandVo">
+        select tb.brand_name as brandName,COUNT(tr.id) AS cupNums,COUNT(DISTINCT(tr.open_id)) AS userNums,ROUND(AVG(tr.score),2)
+        AS score
+        from tea_record tr
+        inner join tea_brand tb on tr.brand_id = tb.id
+        where 1=1
+        <if test="monday != null and monday != ''">
+            and tr.purchase_time <![CDATA[ >= ]]> #{monday}
+        </if>
+        GROUP BY tr.brand_id ORDER BY cupNums DESC,score DESC LIMIT 20
+    </select>
+
+    <select id="selectProductRankList" resultType="com.wx.common.vo.tearank.TeaRankProductVo">
+        select tb.brand_name as brandName,tr.tea_name as teaName,COUNT(tr.id) AS cupNums,COUNT(DISTINCT(tr.open_id)) AS
+        userNums,ROUND(AVG(tr.score),2) AS score
+        from tea_record tr
+        inner join tea_brand tb on tr.brand_id = tb.id
+        where 1=1
+        <if test="monday != null and monday != ''">
+            and tr.purchase_time <![CDATA[ >= ]]> #{monday}
+        </if>
+        GROUP BY tr.tea_name ORDER BY cupNums DESC,score DESC LIMIT 20
+    </select>
+</mapper>
