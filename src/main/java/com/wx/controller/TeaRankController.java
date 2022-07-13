@@ -16,13 +16,17 @@ import com.wx.common.vo.tearank.TeaRankVo;
 @RequestMapping("/api/tea/rank")
 public class TeaRankController {
 
+   @Resource
+    private TeaRankService teaRankService;
+
     /**
      * 列表
      * @param so
      * @return
      */
-    @PostMapping
+    @PostMapping("list")
     public BaseResponse<TeaRankVo> list(@RequestBody TeaRankSo so) {
-        return BaseResponse.ok();
+
+        return BaseResponse.ok(teaRankService.list(so));
     }
 }
